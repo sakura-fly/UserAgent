@@ -35,45 +35,33 @@ public class UserAgent {
 			browser = (userAgent.substring(user.indexOf("edge")).split(" ")[0]).replace("/", "-");
 		} else if (user.contains("ucbrowser") || user.contains("ubrowser")) {
 			if (user.contains("ucbrowser")) {
-				browser = (user.substring(user.indexOf("ucbrowser")).split(" ")[0]).replace("/", "-");
+				browser = (user.substring(user.indexOf("ucbrowser")).split(" ")[0]).replace("/", "-").replace("ucbrowser", "UC浏览器");
 			} else if (user.contains("ubrowser")) {
-				browser = (user.substring(user.indexOf("ubrowser")).split(" ")[0]).replace("/", "-");
+				browser = (user.substring(user.indexOf("ubrowser")).split(" ")[0]).replace("/", "-").replace("ubrowser", "UC浏览器");
 			}
 		} else if (user.contains("msie")) {
 			String substring = userAgent.substring(user.indexOf("msie")).split(";")[0];
 			browser = substring.replace("MSIE", "IE").replace(" ", "-");
 		} else if (user.contains("safari") && user.contains("version")) {
-			browser = (userAgent.substring(userAgent.indexOf("Safari")).split(
-					" ")[0]).split("/")[0]
-					+ "-"
-					+ (userAgent.substring(userAgent.indexOf("Version")).split(
-							" ")[0]).split("/")[1];
+			browser = (userAgent.substring(userAgent.indexOf("Safari")).split(" ")[0]).split("/")[0]+ "-"+ (userAgent.substring(userAgent.indexOf("Version")).split(" ")[0]).split("/")[1];
 		} else if (user.contains("opr") || user.contains("opera")) {
 			if (user.contains("opera")) {
-				browser = (userAgent.substring(user.indexOf("opera"))
-						.split(" ")[0]).split("/")[0]
-						+ "-"
-						+ (userAgent.substring(user.indexOf("version")).split(
-								" ")[0]).split("/")[1];
+				browser = (userAgent.substring(user.indexOf("opera")).split(" ")[0]).split("/")[0]+ "-"+ (userAgent.substring(user.indexOf("version")).split(" ")[0]).split("/")[1];
 			} else if (user.contains("opr")) {
-				browser = ((userAgent.substring(user.indexOf("opr")).split(" ")[0])
-						.replace("/", "-")).replace("OPR", "Opera");
+				browser = ((userAgent.substring(user.indexOf("opr")).split(" ")[0]).replace("/", "-")).replace("OPR", "Opera");
 			}
 
 		} else if (user.contains("chrome")) {
-			browser = (userAgent.substring(userAgent.indexOf("Chrome")).split(
-					" ")[0]).replace("/", "-");
+			browser = (userAgent.substring(userAgent.indexOf("Chrome")).split(" ")[0]).replace("/", "-");
 		} else if (user.contains("firefox")) {
-			browser = (userAgent.substring(userAgent.indexOf("Firefox")).split(
-					" ")[0]).replace("/", "-");
+			browser = (userAgent.substring(userAgent.indexOf("Firefox")).split(" ")[0]).replace("/", "-");
 		} else if (user.contains("rv")) {
-			String IEVersion = (userAgent.substring(userAgent.indexOf("rv"))
-					.split(" ")[0]).replace("rv:", "-");
+			String IEVersion = (userAgent.substring(userAgent.indexOf("rv")).split(" ")[0]).replace("rv:", "-");
 			browser = "IE" + IEVersion.substring(0, IEVersion.length() - 1);
 		} else {
 			browser = "UnKnown, More-Info: " + userAgent;
 		}
 
-		return os + " --- " + browser;
+		return os + "," + browser;
 	}
 }
