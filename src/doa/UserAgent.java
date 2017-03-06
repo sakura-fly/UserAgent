@@ -16,7 +16,21 @@ public class UserAgent {
 		String user = userAgent.toLowerCase();
 		// =================Prase OS Info=======================
 		if (user.contains("windows")) {
-			os = "Windows";
+			os = "Windows ";
+			if(user.contains("nt 5.1")){
+				os = "Windows XP";
+			} else if(user.contains("nt 5.2")){
+				os = "Windows Server 2003";
+			} else if(user.contains("nt 6.1")){
+				os = "Windows 7";
+			} else if(user.contains("nt 6.2")){
+				os = "Windows 8";
+			} else if(user.contains("nt 6.3")){
+				os = "Windows 8.1";
+			} else if(user.contains("nt 1.0")){
+				os = "Windows 10";
+			} 
+			
 		} else if (user.contains("mac")) {
 			os = "Mac";
 		} else if (user.contains("android")) {
