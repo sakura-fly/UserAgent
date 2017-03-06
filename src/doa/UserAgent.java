@@ -27,7 +27,7 @@ public class UserAgent {
 				os = "Windows 8";
 			} else if(user.contains("nt 6.3")){
 				os = "Windows 8.1";
-			} else if(user.contains("nt 1.0")){
+			} else if(user.contains("nt 10.0")){
 				os = "Windows 10";
 			} 
 			
